@@ -1,0 +1,58 @@
+{% extends 'crudapp/base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Contact</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <a href="{% url 'create' %}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Tambah
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Description</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contact_list %}
+                        <tr>
+                            <td>{{ contact.firstName }}</td>
+                            <td>{{ contact.lastName }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.phone }}</td>
+                            <td>{{ contact.address }}</td>
+                            <td>{{ contact.description }}</td>
+                            <td>
+                                <a href="{% url 'edit' contact.pk %}" class="btn btn-warning">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                <a href="{% url 'delete' contact.pk %}" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </html>
+        </div>
+    </div>
+</div>
+{% endblock %}
