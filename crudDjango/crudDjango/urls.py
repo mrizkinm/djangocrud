@@ -16,12 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crudapp import views
+from crudapp import carsview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', views.IndexView.as_view(), name='index'),
     path('contacts/<int:pk>/', views.ContactDetailView.as_view(), name='detail'),
     path('contacts/edit/<int:pk>/', views.edit, name='edit'),
+    path('contacts/detail/<int:pk>/', views.detail, name='detail'),
     path('contacts/create/', views.create, name='create'),
     path('contacts/delete/<int:pk>/', views.delete, name='delete'),
+    path('cars/', carsview.IndexView.as_view(), name='index'),
+    path('cars/<int:pk>/', carsview.CarsDetailView.as_view(), name='detail'),
+    path('cars/edit/<int:pk>/', carsview.edit, name='edit'),
+    path('cars/detail/<int:pk>/', carsview.detail, name='detail'),
+    path('cars/create/', carsview.create, name='create'),
+    path('cars/delete/<int:pk>/', carsview.delete, name='delete'),
 ]

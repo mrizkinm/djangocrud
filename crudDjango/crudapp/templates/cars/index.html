@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
         <div class="col-md-10 col-xs-10 col-sm-10">
-            <h3 class="round3" style="text-align:center;">Contact</h3>
+            <h3 class="round3" style="text-align:center;">Mobil</h3>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-1"></div>
     </div>
@@ -22,32 +22,34 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Description</th>
+                        <th>Nama</th>
+                        <th>Plat</th>
+                        <th>Tipe</th>
+                        <th>Merk</th>
+                        <th>Warna</th>
+                        <th>Harga</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for contact in contact_list %}
+                    {% for cars in cars_list %}
                         <tr>
-                            <td>{{ contact.firstName }}</td>
-                            <td>{{ contact.lastName }}</td>
-                            <td>{{ contact.email }}</td>
-                            <td>{{ contact.phone }}</td>
-                            <td>{{ contact.address }}</td>
-                            <td>{{ contact.description }}</td>
+                            <td>{{ cars.carsName }}</td>
+                            <td>{{ cars.plat }}</td>
+                            <td>{{ cars.Carype }}</td>
+                            <td>{{ cars.brand }}</td>
+                            <td>{{ cars.color }}</td>
+                            <td>{{ cars.price }}</td>
+                            <td>{{ cars.status }}</td>
                             <td>
-                                <a href="{% url 'detail' contact.pk %}" class="btn btn-success">
+                                <a href="{% url 'detail' cars.pk %}" class="btn btn-success">
                                     <span class="glyphicon glyphicon-eye-open"></span>
                                 </a>
-                                <a href="{% url 'edit' contact.pk %}" class="btn btn-warning">
+                                <a href="{% url 'edit' cars.pk %}" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a>
-                                <a href="{% url 'delete' contact.pk %}" class="btn btn-danger">
+                                <a href="{% url 'delete' cars.pk %}" class="btn btn-danger">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
